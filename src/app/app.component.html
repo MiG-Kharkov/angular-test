@@ -15,6 +15,9 @@
 <!--<p> service from main 5*5: {{ out_info }}</p>-->
 <p> service from main 5*5: {{ serviceData.add_sq(5) }}</p>
 <p> service from main count: {{ serviceData.count }}</p>
-<button (click)="onClic()">Test</button>
+<div (click)="onDivClic()">
+<button (click)="onClic($event)">Test</button>
+</div>
+<input #email (keyup.enter)="onKeyUp(email.value)">
 
 <router-outlet></router-outlet>

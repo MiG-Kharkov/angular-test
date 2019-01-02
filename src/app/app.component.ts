@@ -29,7 +29,16 @@ export class AppComponent implements OnInit {
     this.serviceData.update_count(13);
   }
 
-  onClic() {
-    console.log('the button clicked');
+  onClic($event) {
+    $event.stopPropagation();
+    console.log('the button clicked', $event);
+  }
+
+  onDivClic() {
+    console.log('Div click as well');
+  }
+
+  onKeyUp(email) {
+    console.log(email);
   }
 }
