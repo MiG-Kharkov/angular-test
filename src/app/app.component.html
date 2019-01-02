@@ -18,6 +18,7 @@
 <div (click)="onDivClic()">
 <button (click)="onClic($event)">Test</button>
 </div>
-<input #email (keyup.enter)="onKeyUp(email.value)">
+<!--<input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()">-->
+<input [(ngModel)]="email" (keyup.enter)="onKeyUp()">
 
 <router-outlet></router-outlet>
