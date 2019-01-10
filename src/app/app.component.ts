@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NewServiceService} from './services/new-service.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +14,8 @@ export class AppComponent implements OnInit {
   // out_info;
   // names;
   serviceData;
+  email = 'test@email.com';
+  checked = 'checked';
 
   constructor(
     // private serviceData: NewServiceService
@@ -38,7 +41,7 @@ export class AppComponent implements OnInit {
     console.log('Div click as well');
   }
 
-  onKeyUp(email) {
-    console.log(email);
+  onKeyUp() {
+    console.log(this.email);
   }
 }

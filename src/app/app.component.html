@@ -16,9 +16,16 @@
 <p> service from main 5*5: {{ serviceData.add_sq(5) }}</p>
 <p> service from main count: {{ serviceData.count }}</p>
 <div (click)="onDivClic()">
-<button (click)="onClic($event)">Test</button>
+  <button (click)="onClic($event)">Test</button>
 </div>
 <!--<input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()">-->
 <input [(ngModel)]="email" (keyup.enter)="onKeyUp()">
 
 <router-outlet></router-outlet>
+<div>
+  <h1>Material design</h1>
+  <mat-checkbox
+    [checked]="checked">
+
+  </mat-checkbox>
+</div>
