@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Inject, Injectable, Optional } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,9 @@ export class NewServiceService {
     return this._names;
   }
 
-  constructor(private _count?: number) {
+  constructor(
+    @Inject('_count') @Optional() public _count?: number,
+  ) {
     this._count = (_count) ? _count : 10;
   }
 
