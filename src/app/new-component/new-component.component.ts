@@ -7,9 +7,8 @@ import {NewServiceService} from '../services/new-service.service';
   styleUrls: ['./new-component.component.css']
 })
 export class NewComponentComponent implements OnInit {
-  out_inside_new_component = new NewServiceService();
 
-  constructor() {
+  constructor(private out_inside_new_component: NewServiceService) {
   }
 
   ngOnInit() {

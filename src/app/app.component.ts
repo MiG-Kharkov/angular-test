@@ -13,14 +13,12 @@ export class AppComponent implements OnInit {
   // ser_count;
   // out_info;
   // names;
-  serviceData;
   email = 'test@email.com';
   checked = 'checked';
 
   constructor(
-    // private serviceData: NewServiceService
+    private serviceData: NewServiceService
   ) {
-    this.serviceData = new NewServiceService();
     // serviceData.update_count();
     // serviceData.update_count();
     // this.ser_count = serviceData.count;
