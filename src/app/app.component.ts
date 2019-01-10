@@ -5,29 +5,23 @@ import {NewServiceService} from './services/new-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent implements OnInit {
   title = 'my-project';
-  // ser_count;
-  // out_info;
-  // names;
+
   email = 'test@email.com';
   checked = 'checked';
 
   constructor(
     private serviceData: NewServiceService
   ) {
-    // serviceData.update_count();
-    // serviceData.update_count();
-    // this.ser_count = serviceData.count;
-    // this.out_info = serviceData.add_sq(10);
-    // this.names = serviceData.names;
+
   }
 
   ngOnInit(): void {
-    this.serviceData.update_count(13);
+    this.serviceData.update_count(5);
   }
 
   onClic($event) {

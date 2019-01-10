@@ -22,7 +22,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatCheckboxModule
   ],
   providers: [
-    NewServiceService
+    NewServiceService, {provide: '_count', useValue: 100}
   ],
   bootstrap: [AppComponent]
 })
