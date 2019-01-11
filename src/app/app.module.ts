@@ -8,7 +8,7 @@ import {NewComponentComponent} from './new-component/new-component.component';
 import {NewServiceService} from './services/new-service.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatSelectModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import {MatButtonModule} from '@angular/material';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [
     NewServiceService, {provide: '_count', useValue: 100}

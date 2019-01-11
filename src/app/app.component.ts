@@ -13,6 +13,12 @@ export class AppComponent implements OnInit {
 
   email = 'test@email.com';
   isChecked = true;
+  colors = [
+    {id: 1, name: 'red'},
+    {id: 2, name: 'green'},
+    {id: 3, name: 'blue'}
+  ];
+  color = 2;
 
   constructor(
     private serviceData: NewServiceService
