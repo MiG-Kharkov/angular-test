@@ -25,9 +25,12 @@
 <router-outlet></router-outlet>
 <div>
   <h1>Material design</h1>
-  <mat-checkbox [checked]="isChecked">
 
+  <mat-checkbox
+    #showDetails
+    [checked]="isChecked">
   </mat-checkbox>
   <p></p>
   <button mat-button (click)="checkToNotChech()">Change status</button>
 </div>
+<div *ngIf="showDetails.checked">Some detailes ....</div>
