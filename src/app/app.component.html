@@ -34,8 +34,8 @@
 </div>
 <div *ngIf="isChecked">Some detailes ....</div>
 
-<mat-form-field [(ngModel)]="color">
-  <mat-select placeholder="Favorite color">
+<mat-form-field>
+  <mat-select [(value)]="selected" placeholder="Favorite color">
     <mat-option
       *ngFor="let color of colors"
       [value]="color.id">
@@ -44,4 +44,4 @@
   </mat-select>
 </mat-form-field>
 
-<p>Color Id is {{ color }}</p>
+<p>Color Id is {{ selected }}</p>

@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     {id: 2, name: 'green'},
     {id: 3, name: 'blue'}
   ];
-  color = 2;
+  selected = 2;
 
   constructor(
     private serviceData: NewServiceService
