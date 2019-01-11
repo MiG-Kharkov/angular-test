@@ -27,8 +27,7 @@
   <h1>Material design</h1>
 
   <mat-checkbox
-    #showDetails
-    [checked]="isChecked">
+    [(ngModel)]="isChecked">
   </mat-checkbox>
   <p></p>
   <button mat-button (click)="checkToNotChech()">Change status</button>
