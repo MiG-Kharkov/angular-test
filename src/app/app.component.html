@@ -19,13 +19,15 @@
   <button (click)="onClic($event)">Test</button>
 </div>
 <!--<input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()">-->
+
 <input [(ngModel)]="email" (keyup.enter)="onKeyUp()">
 
 <router-outlet></router-outlet>
 <div>
   <h1>Material design</h1>
-  <mat-checkbox
-    [checked]="checked">
+  <mat-checkbox [checked]="isChecked">
 
   </mat-checkbox>
+  <p></p>
+  <button mat-button (click)="checkToNotChech()">Change status</button>
 </div>

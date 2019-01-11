@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'my-project';
 
   email = 'test@email.com';
-  checked = 'checked';
+  isChecked = true;
 
   constructor(
     private serviceData: NewServiceService
@@ -35,5 +35,9 @@ export class AppComponent implements OnInit {
 
   onKeyUp() {
     console.log(this.email);
+  }
+
+  checkToNotChech() {
+    this.isChecked = !this.isChecked;
   }
 }
