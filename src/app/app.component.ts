@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NewServiceService} from './services/new-service.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {compareNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 
 @Component({
@@ -12,9 +13,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class AppComponent implements OnInit {
   isChecked = true;
   colors = [
-    {id: 1, name: 'red'},
+    {id: 3, name: 'red'},
     {id: 2, name: 'green'},
-    {id: 3, name: 'blue'}
+    {id: 1, name: 'blue'}
   ];
   selected = 2;
   public outPut;
@@ -43,7 +44,9 @@ export class AppComponent implements OnInit {
   }
 
   arrayFunction() {
-    const test = this.colors.filter(a => a.id > 1);
+    const test = this.colors.filter(a => a.id > 1).sort(function (a, b) {
+      return a.id - b.id;
+    });
     console.log(test);
     this.colors = test;
   }
