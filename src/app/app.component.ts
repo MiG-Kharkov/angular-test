@@ -32,8 +32,7 @@ export class AppComponent implements OnInit {
     this.serviceData.update_count(5);
     this.loginForm = this.fb.group({
       name: ['test', Validators.maxLength(6)],
-      email: [''],
-      password: ['']
+      id: ['', [Validators.pattern('^[0-9]*$'), Validators.required]]
     });
   }
 
@@ -44,11 +43,6 @@ export class AppComponent implements OnInit {
   }
 
   arrayFunction() {
-    const test = this.colors.filter(a => a.id > 1).sort(function (a, b) {
-      // return a.id - b.id;
-      return a.name.localeCompare(b.name);
-    });
-    console.log(test);
-    this.colors = test;
+    this.colors.push({id: this.loginForm.controls.id.value, name: this.loginForm.controls.name.value});
   }
 }
