@@ -44,5 +44,13 @@ export class AppComponent implements OnInit {
 
   arrayFunction() {
     this.colors.push({id: this.loginForm.controls.id.value, name: this.loginForm.controls.name.value});
+    this.colors = this.colors.map(a => {
+      return {id: a.id, name: a.name + 'test'};
+    })
+    // this.colors = this.colors.map(function (a) {
+    //     return {id: a.id, name: a.name + 'mapped'};
+    //   }
+    // )
+    ;
   }
 }
