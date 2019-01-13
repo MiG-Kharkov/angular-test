@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     {id: 2, name: 'green'},
     {id: 1, name: 'blue'}
   ];
-  selected = 2;
+  selected = 1;
   public outPut;
   public loginForm: FormGroup;
 
@@ -45,7 +45,8 @@ export class AppComponent implements OnInit {
 
   arrayFunction() {
     const test = this.colors.filter(a => a.id > 1).sort(function (a, b) {
-      return a.id - b.id;
+      // return a.id - b.id;
+      return a.name.localeCompare(b.name);
     });
     console.log(test);
     this.colors = test;
