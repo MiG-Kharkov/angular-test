@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NewServiceService} from './services/new-service.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -9,9 +10,6 @@ import {NewServiceService} from './services/new-service.service';
 })
 
 export class AppComponent implements OnInit {
-  title = 'my-project';
-
-  email = 'test@email.com';
   isChecked = true;
   colors = [
     {id: 1, name: 'red'},
@@ -19,31 +17,34 @@ export class AppComponent implements OnInit {
     {id: 3, name: 'blue'}
   ];
   selected = 2;
+  public outPut;
+  public loginForm: FormGroup;
 
   constructor(
-    private serviceData: NewServiceService
+    public serviceData: NewServiceService,
+    public fb: FormBuilder
   ) {
 
   }
 
   ngOnInit(): void {
     this.serviceData.update_count(5);
-  }
-
-  onClic($event) {
-    $event.stopPropagation();
-    console.log('the button clicked', $event);
-  }
-
-  onDivClic() {
-    console.log('Div click as well');
-  }
-
-  onKeyUp() {
-    console.log(this.email);
+    this.loginForm = this.fb.group({
+      name: ['test', Validators.maxLength(6)],
+      email: [''],
+      password: ['']
+    });
   }
 
   checkToNotChech() {
+    this.outPut = this.loginForm.controls.name.value;
+    this.loginForm.controls.name.setValue('test1');
     this.isChecked = !this.isChecked;
+  }
+
+  arrayFunction() {
+    const test = this.colors.filter(a => a.id > 1);
+    console.log(test);
+    this.colors = test;
   }
 }

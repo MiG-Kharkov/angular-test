@@ -1,1 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/*.ng-invalid {*/
+  /*border: 3px red solid;*/
+/*}*/
