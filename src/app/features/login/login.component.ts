@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ErrorStateMatcher, MatDialogRef } from '@angular/material';
+import { Component, Inject, OnInit } from '@angular/core';
+import { ErrorStateMatcher, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -22,8 +22,9 @@ export class LoginComponent implements OnInit {
   public matcher = new LoginErrorStateMatcher();
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private loginDialogRef: MatDialogRef<LoginComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) {}
 
   public ngOnInit() {
@@ -36,7 +37,8 @@ export class LoginComponent implements OnInit {
       ],
       password: [
         '',
-        Validators.required
+        Validators.required,
+        Validators.minLength(this.data.minPasswordLength)
       ]
     });
   }
