@@ -5,8 +5,9 @@
   <form [formGroup]="loginForm">
     <label>Name: </label>
     <input formControlName="name">
-    <mat-error *ngIf="loginForm.controls.name.errors?.maxlength">{{ loginForm.controls.name.errors | json }} </mat-error>
-    <mat-label>ID: </mat-label>
+    <mat-error
+      *ngIf="loginForm.controls.name.errors?.maxlength">{{ loginForm.controls.name.errors | json }} </mat-error>
+    <mat-label>ID:</mat-label>
     <input formControlName="id">
     <mat-error>{{ loginForm.controls.id.errors | json }} </mat-error>
   </form>
@@ -35,6 +36,7 @@
 
 
 <button mat-raised-button
-  (click)="openDialog()">Open dialog</button>
+        (click)="openDialog($event)">Open dialog
+</button>
 
-<div style="border-bottom-color: blue; border: solid; border-width: 5px">Box with border</div>
+<div [style.font-size.em]="divFontSize"> Box with border</div>

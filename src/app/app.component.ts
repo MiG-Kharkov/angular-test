@@ -22,13 +22,13 @@ export class AppComponent implements OnInit {
   selected = 1;
   public outPut;
   public loginForm: FormGroup;
+  public divFontSize = 3;
 
   constructor(
     public serviceData: NewServiceService,
     public fb: FormBuilder,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) {
-
   }
 
   ngOnInit(): void {
@@ -58,6 +58,15 @@ export class AppComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(BorderSizeComponent);
+    this.dialog.open(BorderSizeComponent).afterClosed().subscribe(($event) => {
+        console.log($event);
+        if ($event === 'Increase') {
+          this.divFontSize += 1;
+        } else {
+          this.divFontSize -= 1;
+        }
+      }
+    )
+    ;
   }
 }
