@@ -8,16 +8,15 @@ import {NewComponentComponent} from './new-component/new-component.component';
 import {NewServiceService} from './services/new-service.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule, MatDialogModule, MatSelectModule} from '@angular/material';
+import {LoginComponent} from './features/login/login.component';
+import {MatButtonModule, MatDialogModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {BorderSizeComponent} from './border-size/border-size.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewComponentComponent,
-    BorderSizeComponent
-  ],
-  entryComponents: [
+    LoginComponent,
     BorderSizeComponent
   ],
   imports: [
@@ -28,11 +27,16 @@ import {BorderSizeComponent} from './border-size/border-size.component';
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatInputModule,
     MatSelectModule,
     MatDialogModule
   ],
   providers: [
     NewServiceService, {provide: '_count', useValue: 100}
+  ],
+  entryComponents: [
+    LoginComponent,
+    BorderSizeComponent
   ],
   bootstrap: [AppComponent]
 })
