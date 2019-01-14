@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
     });
 
     this.loginDialogRef.afterClosed().subscribe(result => {
-      console.log(`User name: ${result}`);
+      console.log(`Result: ${result}`);
     });
 
   }
