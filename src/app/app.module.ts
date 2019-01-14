@@ -19,9 +19,6 @@ import {BorderSizeComponent} from './border-size/border-size.component';
     LoginComponent,
     BorderSizeComponent
   ],
-  entryComponents: [
-    BorderSizeComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -38,7 +35,8 @@ import {BorderSizeComponent} from './border-size/border-size.component';
     NewServiceService, {provide: '_count', useValue: 100}
   ],
   entryComponents: [
-    LoginComponent
+    LoginComponent,
+    BorderSizeComponent
   ],
   bootstrap: [AppComponent]
 })

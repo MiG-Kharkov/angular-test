@@ -16,8 +16,6 @@ export class AppComponent implements OnInit {
 
   loginDialogRef: MatDialogRef<LoginComponent>;
 
-  loginForm: FormGroup;
-
   email = 'test@email.com';
 
   isChecked = true;
@@ -28,7 +26,6 @@ export class AppComponent implements OnInit {
   ];
   selected = 1;
   public outPut;
-  public loginForm: FormGroup;
   public divFontSize = 3;
 
   constructor(
@@ -40,28 +37,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.serviceData.update_count(5);
-    this.loginForm = this.fb.group({
-      name: ['test', Validators.maxLength(6)],
-      id: ['', [Validators.pattern('^[0-9]*$'), Validators.required]]
-    });
   }
 
   checkToNotChech() {
-    this.outPut = this.loginForm.controls.name.value;
-    this.loginForm.controls.name.setValue('test1');
     this.isChecked = !this.isChecked;
-  }
-
-  arrayFunction() {
-    this.colors.push({id: this.loginForm.controls.id.value, name: this.loginForm.controls.name.value});
-    this.colors = this.colors.map(a => {
-      return {id: a.id, name: a.name + 'test'};
-    })
-    // this.colors = this.colors.map(function (a) {
-    //     return {id: a.id, name: a.name + 'mapped'};
-    //   }
-    // )
-    ;
   }
 
   openDialog() {

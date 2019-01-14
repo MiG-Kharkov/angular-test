@@ -7,17 +7,6 @@
 <div>
   <h1>Material design</h1>
 
-  <form [formGroup]="loginForm">
-    <label>Name: </label>
-    <input formControlName="name">
-    <mat-error
-      *ngIf="loginForm.controls.name.errors?.maxlength">{{ loginForm.controls.name.errors | json }} </mat-error>
-    <mat-label>ID:</mat-label>
-    <input formControlName="id">
-    <mat-error>{{ loginForm.controls.id.errors | json }} </mat-error>
-  </form>
-
-
   <mat-checkbox
     [(ngModel)]="isChecked">
   </mat-checkbox>
