@@ -21,7 +21,7 @@
         Password is <strong>required</strong>
       </mat-error>
       <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">
-        Sorry, password is too short
+        Password is too short, min length is {{loginForm.controls.password.errors.minlength.requiredLength }}, but you entered {{loginForm.controls.password.errors.minlength.actualLength }} char.
       </mat-error>
     </mat-form-field>
   </form>
