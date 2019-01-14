@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {NewServiceService} from './services/new-service.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {compareNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
+import {MatDialog, MatDialogModule} from '@angular/material';
+import {BorderSizeComponent} from './border-size/border-size.component';
 
 
 @Component({
@@ -23,7 +25,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     public serviceData: NewServiceService,
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    private dialog: MatDialog
   ) {
 
   }
@@ -52,5 +55,9 @@ export class AppComponent implements OnInit {
     //   }
     // )
     ;
+  }
+
+  openDialog() {
+    this.dialog.open(BorderSizeComponent);
   }
 }

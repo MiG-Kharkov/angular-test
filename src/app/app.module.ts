@@ -8,12 +8,17 @@ import {NewComponentComponent} from './new-component/new-component.component';
 import {NewServiceService} from './services/new-service.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule, MatSelectModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatSelectModule} from '@angular/material';
+import {BorderSizeComponent} from './border-size/border-size.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewComponentComponent
+    NewComponentComponent,
+    BorderSizeComponent
+  ],
+  entryComponents: [
+    BorderSizeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,8 @@ import {MatButtonModule, MatSelectModule} from '@angular/material';
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [
     NewServiceService, {provide: '_count', useValue: 100}
