@@ -50,5 +50,10 @@ export class AppComponent implements OnInit {
       height: '300px',
       width: '400px',
     });
+
+    this.loginDialogRef.afterClosed().subscribe(result => {
+      console.log(`User name: ${result}`);
+    });
+
   }
 }
