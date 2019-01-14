@@ -2,14 +2,46 @@
 
 <button mat-stroked-button (click)="showLoginDialog()">Login</button>
 
+
 <router-outlet></router-outlet>
 <div>
   <h1>Material design</h1>
+
+  <form [formGroup]="loginForm">
+    <label>Name: </label>
+    <input formControlName="name">
+    <mat-error
+      *ngIf="loginForm.controls.name.errors?.maxlength">{{ loginForm.controls.name.errors | json }} </mat-error>
+    <mat-label>ID:</mat-label>
+    <input formControlName="id">
+    <mat-error>{{ loginForm.controls.id.errors | json }} </mat-error>
+  </form>
+
 
   <mat-checkbox
     [(ngModel)]="isChecked">
   </mat-checkbox>
   <p></p>
-  <button mat-button (click)="checkToNotChech()">Change status</button>
+  <button mat-raised-button (click)="checkToNotChech()">Change status</button>
 </div>
 <div *ngIf="isChecked">Some detailes ....</div>
+
+<mat-form-field>
+  <mat-select [(ngModel)]="selected" placeholder="Favorite color">
+    <mat-option
+      *ngFor="let color of colors"
+      [value]="color.id">
+      {{ color.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-raised-button (click)="arrayFunction()">Work with array</button>
+<p>Color Id is {{ colors | json }}</p>
+
+
+<button mat-raised-button
+        (click)="openDialog($event)">Open dialog
+</button>
+
+<div [style.font-size.em]="divFontSize"> Box with border</div>
