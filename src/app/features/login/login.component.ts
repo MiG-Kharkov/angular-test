@@ -25,20 +25,24 @@ export class LoginComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private loginDialogRef: MatDialogRef<LoginComponent>,
     private fb: FormBuilder,
-  ) {}
+  ) {
+  }
 
   public ngOnInit() {
     this.loginForm = this.fb.group({
       email: [
-        '', [
+        '',
+        [
           Validators.required,
           Validators.email,
         ]
       ],
       password: [
         '',
-        Validators.required,
-        Validators.minLength(this.data.minPasswordLength)
+        [
+          Validators.required,
+          Validators.minLength(this.data.minPasswordLength)
+        ]
       ]
     });
   }

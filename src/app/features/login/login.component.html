@@ -20,6 +20,9 @@
       <mat-error *ngIf="loginForm.controls.password.hasError('required')">
         Password is <strong>required</strong>
       </mat-error>
+      <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">
+        Sorry, password is too short
+      </mat-error>
     </mat-form-field>
   </form>
 
