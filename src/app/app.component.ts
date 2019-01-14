@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
     this.loginDialogRef = this.dialog.open(LoginComponent, {
       height: '300px',
       width: '400px',
-      data: { minPasswordLength: 2 },
+      data: {minPasswordLength: 2},
     });
 
     this.loginDialogRef.afterClosed().subscribe(result => {
