@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -8,20 +8,24 @@ import {NewComponentComponent} from './new-component/new-component.component';
 import {NewServiceService} from './services/new-service.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material';
+import { MatButtonModule, MatInputModule } from '@angular/material';
+import { LoginComponent } from './features/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewComponentComponent
+    NewComponentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [
     NewServiceService, {provide: '_count', useValue: 100}
