@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>
+  Login
+</h1>
+
+<mat-dialog-content>
+  <form novalidate [formGroup]="loginForm" class="login-form">
+
+    <mat-form-field class="login-form-field">
+      <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="loginForm.controls.email.hasError('email') && !loginForm.controls.email.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="loginForm.controls.email.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="login-form-field">
+      <input matInput [placeholder]="'Password (min length:' + data.minPasswordLength + ')'" formControlName="password" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">
+        Password is too short, min length is {{loginForm.controls.password.errors.minlength.requiredLength }}, but you entered {{loginForm.controls.password.errors.minlength.actualLength }} char.
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button [mat-dialog-close]="'[cancel]'" mat-button>Cancel</button>
+  <button [mat-dialog-close]="loginForm.controls.email.value" mat-raised-button [disabled]="!loginForm.valid">Login</button>
+  <button (click)="closeLoginDialog()" mat-raised-button >OK</button>
+</mat-dialog-actions>

@@ -1,8 +1,8 @@
+import {LoginComponent} from './features/login/login.component';
 import {Component, OnInit} from '@angular/core';
 import {NewServiceService} from './services/new-service.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {compareNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
-import {MatDialog, MatDialogModule} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import {BorderSizeComponent} from './border-size/border-size.component';
 
 
@@ -13,6 +13,11 @@ import {BorderSizeComponent} from './border-size/border-size.component';
 })
 
 export class AppComponent implements OnInit {
+
+  loginDialogRef: MatDialogRef<LoginComponent>;
+
+  email = 'test@email.com';
+
   isChecked = true;
   colors = [
     {id: 3, name: 'red'},
@@ -21,11 +26,10 @@ export class AppComponent implements OnInit {
   ];
   selected = 1;
   public outPut;
-  public loginForm: FormGroup;
   public divFontSize = 3;
 
   constructor(
-    public serviceData: NewServiceService,
+    private serviceData: NewServiceService,
     public fb: FormBuilder,
     private dialog: MatDialog,
   ) {
@@ -33,28 +37,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.serviceData.update_count(5);
-    this.loginForm = this.fb.group({
-      name: ['test', Validators.maxLength(6)],
-      id: ['', [Validators.pattern('^[0-9]*$'), Validators.required]]
-    });
   }
 
   checkToNotChech() {
-    this.outPut = this.loginForm.controls.name.value;
-    this.loginForm.controls.name.setValue('test1');
     this.isChecked = !this.isChecked;
-  }
-
-  arrayFunction() {
-    this.colors.push({id: this.loginForm.controls.id.value, name: this.loginForm.controls.name.value});
-    this.colors = this.colors.map(a => {
-      return {id: a.id, name: a.name + 'test'};
-    })
-    // this.colors = this.colors.map(function (a) {
-    //     return {id: a.id, name: a.name + 'mapped'};
-    //   }
-    // )
-    ;
   }
 
   openDialog() {
@@ -68,5 +54,18 @@ export class AppComponent implements OnInit {
       }
     )
     ;
+  }
+
+  public showLoginDialog() {
+    this.loginDialogRef = this.dialog.open(LoginComponent, {
+      height: '300px',
+      width: '400px',
+      data: { minPasswordLength: 2 },
+    });
+
+    this.loginDialogRef.afterClosed().subscribe(result => {
+      console.log(`Result: ${result}`);
+    });
+
   }
 }
