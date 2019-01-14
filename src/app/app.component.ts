@@ -2,7 +2,7 @@ import {LoginComponent} from './features/login/login.component';
 import {Component, OnInit} from '@angular/core';
 import {NewServiceService} from './services/new-service.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import {BorderSizeComponent} from './border-size/border-size.component';
 
 
