@@ -4,6 +4,7 @@ import {NewServiceService} from './services/new-service.service';
 import {FormBuilder} from '@angular/forms';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {BorderSizeComponent} from './border-size/border-size.component';
+import {ColorData} from './color-data';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
   email = 'test@email.com';
 
   isChecked = true;
-  colors = [
+  colors: ColorData[] = [
     {id: 3, name: 'red'},
     {id: 2, name: 'green'},
     {id: 1, name: 'blue'}
@@ -47,9 +48,9 @@ export class AppComponent implements OnInit {
   openDialog() {
     this.dialogRef = this.dialog.open(BorderSizeComponent, {data: {colors: this.colors}});
 
-    this.dialogRef.afterClosed().subscribe(($event) => {
-        console.log($event);
-        if ($event === 'Increase') {
+    this.dialogRef.afterClosed().subscribe(result => {
+        console.log(result);
+        if (result === 'Increase') {
           this.divFontSize += 1;
         } else {
           this.divFontSize -= 1;

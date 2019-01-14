@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {ColorData} from '../color-data';
 
 @Component({
   selector: 'app-border-size',
@@ -7,13 +8,15 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
   styleUrls: ['./border-size.component.css']
 })
 export class BorderSizeComponent implements OnInit {
-
+  private colors: ColorData[];
   constructor(private dialogRef: MatDialogRef<BorderSizeComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit() {
     console.log(this.data);
+    this.colors = this.data.colors;
+    console.log(this.colors[0].id);
   }
 
   closeCustomFunction() {
