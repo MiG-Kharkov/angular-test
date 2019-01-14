@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-border-size',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BorderSizeComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private dialogRef: MatDialogRef<BorderSizeComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
+  ngOnInit() {
+    console.log(this.data);
+  }
+
+  closeCustomFunction() {
+    console.log('close...');
+    this.dialogRef.close('test');
+  }
 }

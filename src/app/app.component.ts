@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NewServiceService} from './services/new-service.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {compareNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
-import {MatDialog, MatDialogModule} from '@angular/material';
+import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material';
 import {BorderSizeComponent} from './border-size/border-size.component';
 
 
@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   public outPut;
   public loginForm: FormGroup;
   public divFontSize = 3;
+  private dialogRef: MatDialogRef<BorderSizeComponent>;
 
   constructor(
     public serviceData: NewServiceService,
@@ -58,7 +59,9 @@ export class AppComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(BorderSizeComponent).afterClosed().subscribe(($event) => {
+    this.dialogRef = this.dialog.open(BorderSizeComponent, {data: {colors: this.colors}});
+
+    this.dialogRef.afterClosed().subscribe(($event) => {
         console.log($event);
         if ($event === 'Increase') {
           this.divFontSize += 1;
@@ -66,7 +69,6 @@ export class AppComponent implements OnInit {
           this.divFontSize -= 1;
         }
       }
-    )
-    ;
+    );
   }
 }
