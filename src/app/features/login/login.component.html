@@ -2,9 +2,7 @@
 
   <mat-form-field class="login-form-field">
 
-    <input matInput placeholder="Email" formControlName="email"
-           [errorStateMatcher]="matcher">
-    <mat-hint>Please enter your email</mat-hint>
+    <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
 
     <mat-error *ngIf="loginForm.controls.email.hasError('email') && !loginForm.controls.email.hasError('required')">
       Please enter a valid email address
@@ -15,5 +13,19 @@
     </mat-error>
 
   </mat-form-field>
+
+  <mat-form-field class="login-form-field">
+
+    <input matInput placeholder="Password" formControlName="password" [errorStateMatcher]="matcher">
+
+    <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+
+  </mat-form-field>
+
+  <button mat-button>Cancel</button>
+
+  <button mat-raised-button>Login</button>
 
 </form>
