@@ -41,4 +41,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  public closeLoginDialog() {
+    // some custom error-prone code
+    if (this.loginForm.controls.email.hasError('required')) {
+      return;
+    }
+    this.loginDialogRef.close(this.loginForm.controls.email.value);
+  }
 }

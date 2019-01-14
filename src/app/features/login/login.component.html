@@ -26,6 +26,7 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button [mat-dialog-close]="null" mat-button>Cancel</button>
+  <button [mat-dialog-close]="'[cancel]'" mat-button>Cancel</button>
   <button [mat-dialog-close]="loginForm.controls.email.value" mat-raised-button [disabled]="!loginForm.valid">Login</button>
+  <button (click)="closeLoginDialog()" mat-raised-button >OK</button>
 </mat-dialog-actions>
