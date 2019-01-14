@@ -8,7 +8,7 @@ import {NewComponentComponent} from './new-component/new-component.component';
 import {NewServiceService} from './services/new-service.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { MatButtonModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatInputModule } from '@angular/material';
 import { LoginComponent } from './features/login/login.component';
 
 @NgModule({
@@ -25,10 +25,14 @@ import { LoginComponent } from './features/login/login.component';
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [
     NewServiceService, {provide: '_count', useValue: 100}
+  ],
+  entryComponents: [
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })

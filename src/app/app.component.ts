@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {NewServiceService} from './services/new-service.service';
+import { Component, OnInit } from '@angular/core';
+import { NewServiceService } from './services/new-service.service';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { LoginComponent } from './features/login/login.component';
 
 
 @Component({
@@ -9,13 +11,15 @@ import {NewServiceService} from './services/new-service.service';
 })
 
 export class AppComponent implements OnInit {
-  title = 'my-project';
+
+  loginDialogRef: MatDialogRef<LoginComponent>;
 
   email = 'test@email.com';
   isChecked = true;
 
   constructor(
-    private serviceData: NewServiceService
+    private serviceData: NewServiceService,
+    private dialog: MatDialog
   ) {
 
   }
@@ -39,5 +43,12 @@ export class AppComponent implements OnInit {
 
   checkToNotChech() {
     this.isChecked = !this.isChecked;
+  }
+
+  public showLoginDialog() {
+    this.loginDialogRef = this.dialog.open(LoginComponent, {
+      height: '300px',
+      width: '400px',
+    });
   }
 }
